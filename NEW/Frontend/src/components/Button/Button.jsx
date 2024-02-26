@@ -3,7 +3,7 @@ const Example = () => {
   return (
     <>
       <div className=" flex flex-nowrap  gap-x-20 gap-y-5 grid-cols-3">
-        <Link to="./Register">
+        <Link to="/Register">
           <DrawOutlineButton>Register</DrawOutlineButton>
         </Link>
       </div>

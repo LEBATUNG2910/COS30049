@@ -68,7 +68,7 @@ const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
 );
 
 const Items = () => (
-  <div className="container flex md:flex-row flex-col">
+  <div className="container flex md:flex-row flex-col ">
     <div className="font-bold text-xl flex items-center">
       <Item
         title="Buy, sell and explore tokens on BITWALLS"

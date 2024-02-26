@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from "../components/style";
 import MetaMaskConnectButton from "../components/Button/WalletConnect";
-import TransferEther from "../components/Loader/TransferEther";// Import the new component
+import TransferEther from "../components/Loader/TransferEther"; // Import the new component
 import { Web3Context } from "../pages/Web3Context";
 import { Balance } from "../components/Loader";
 const Token = () => {
@@ -19,10 +19,12 @@ const Token = () => {
               </div>
             )}
             {account && (
-              <div className={styles.exchange}>
+              <div className="mt-5">
                 <TransferEther /> {/* Render the new component */}
-                <p>Connected Account: {account}</p>  
-                <Balance /> {/* Display the balance component */}
+                <p className="mt-5">Connected Account: {account}</p>
+                <div className="mt-5 ">
+                  <Balance /> {/* Display the balance component */}
+                </div>
               </div>
             )}
           </div>

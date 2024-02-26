@@ -19,22 +19,22 @@ const TransferEther = ({ updateTransactionHistory }) => {
       setTransactionSuccess(false);
       setLoading(true);
 
-    //   if (!senderAddress || !amount || !receiverAddress) {
-    //     setError("Please fill all fields");
-    //     setLoading(false);
-    //     return;
-    //   } 
+      //   if (!senderAddress || !amount || !receiverAddress) {
+      //     setError("Please fill all fields");
+      //     setLoading(false);
+      //     return;
+      //   }
       if (!senderAddress) {
         setError("Please fill your contract address");
         setLoading(false);
         return;
       }
-      if ( !receiverAddress) {
+      if (!receiverAddress) {
         setError("Please fill the receiver contract address");
         setLoading(false);
         return;
-      } 
-      if (!amount ) {
+      }
+      if (!amount) {
         setError("Please fill the ETH numbers");
         setLoading(false);
         return;
@@ -71,33 +71,34 @@ const TransferEther = ({ updateTransactionHistory }) => {
   };
 
   return (
-    <div className="flex flex-col w-full items-center">
+    <div className="flex flex-col w-full items-center  ">
       {loading && <p>Loading...</p>}
       {!transactionSuccess && !loading && (
         <>
+          <p>ETH Transaction </p>
           {error && <p className={styles.error}>{error}</p>}
           <input
             type="text"
             placeholder="Sender's Address"
             value={senderAddress}
             onChange={(e) => setSenderAddress(e.target.value)}
-            className={styles.input}
+            className="mt-5 rounded-lg border-2"
           />
           <input
             type="number"
             placeholder="Amount to Send (ETH)"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className={styles.input}
+            className="mt-5 rounded-lg border-2"
           />
           <input
             type="text"
             placeholder="Receiver's Address"
             value={receiverAddress}
             onChange={(e) => setReceiverAddress(e.target.value)}
-            className={styles.input}
+            className="mt-5 rounded-lg border-2"
           />
-          <button onClick={handleTransfer} className={styles.button}>
+          <button onClick={handleTransfer} className="mt-5">
             Transfer Ether
           </button>
         </>
@@ -111,7 +112,10 @@ const TransferEther = ({ updateTransactionHistory }) => {
           <Link to="/history">
             <button className={styles.button}>Show History Transactions</button>
           </Link>
-          <button onClick={() => window.location.reload()} className={styles.button}>
+          <button
+            onClick={() => window.location.reload()}
+            className={styles.button}
+          >
             Continue
           </button>
         </div>

@@ -69,38 +69,39 @@ function Home() {
           <Frame />
         </div>
       </div>
-      <div className="md:mr-40 md:flex-col flex justify-center mr-10 text-white mt-20">
-        <div className="md:flex :flex-row md:text-lg text-lg ml-20">
-          <div className="flex items-center mt-10 ml-1">
+      <div className="text-white ">
+        <div className="flex flex-row mt-20">
+          <div className="flex items-center mt-10 ">
             <img src="./images/ok.png" alt="ok" className="h-19 w-19 ml-10 " />
-            <p className="max-w-xs flex-shrink-0 m-0 whitespace-pre-line ml-2">
+            <p className="">
               Deliver top customer experiences, lead trends, and stay updated
               globally.
             </p>
           </div>
-          <div className=" flex items-center mt-10 md:ml-10 mr-20 ml-7">
+          <div className=" flex items-center mt-10 ">
             <img
               src="./images/secure.png"
               alt="protect"
-              className="h-18 w-18 md:ml-20 ml-3"
+              className="h-19 w-19 ml-10"
             />
-            <p className="md:max-w-xs md:flex-shrink-0 md:whitespace-pre-line ml-3">
-              Secure digital transactions, thwart cybercriminals.
+            <p className="">
+              Secure digital transactions, thwart cybercriminals. Ensure
+              absolute security
             </p>
           </div>
-          <div className=" flex md:items-center mt-10 ml-10">
+          <div className=" flex items-center mt-10 ">
             <img
-              src="./images/check.png"
+              src="./images/correct.png"
               alt="protect"
-              className="h-19 w-19 md:ml-3"
+              className="md:h-19 h-12  md:w-19 w-12 ml-10 "
             />
-            <p className="md:max-w-xs md:flex-shrink-0 whitespace-pre-line ml-3">
+            <p className="">
               Praised by customer partners, evidenced by a large user base.
             </p>
           </div>
         </div>
       </div>
-      <div className="flex justify-center md:ml-40 ml-3">
+      <div className="flex justify-center items-center flex-col md:ml-44 ">
         <Items />
       </div>
       <div className="text-white flex items-center justify-center flex-col text-6xl font-bold mt-20 ">
@@ -254,7 +255,7 @@ function Home() {
       </div>
       <Footer />
     </div>
-  );  
+  );
 }
 
 export default Home;

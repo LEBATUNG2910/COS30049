@@ -63,7 +63,7 @@ const MetaMaskConnectButton = () => {
       <img
         src={process.env.PUBLIC_URL + "/images/gogogogo.png"}
         alt="logogogo"
-        className="w-56 h-56 object-contain"
+        className="w-56 h-56 object-contain animate-spin"
       />
     </div>
   );

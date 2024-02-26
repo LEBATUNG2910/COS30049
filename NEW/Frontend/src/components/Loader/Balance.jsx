@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../style";
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 
 const Balance = () => {
   const [balance, setBalance] = useState(null);
@@ -37,7 +37,7 @@ const Balance = () => {
     <div className={styles.balance}>
       <p className={styles.balanceText}>
         <>
-          <span className={styles.balanceBold}>Balance: </span>
+          <span className="font-semibold text-cyan-300 ">Balance: </span>
           {formattedBalance}
         </>
       </p>
