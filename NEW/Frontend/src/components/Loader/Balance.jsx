@@ -37,7 +37,9 @@ const Balance = () => {
     <div className={styles.balance}>
       <p className={styles.balanceText}>
         <>
-          <span className="font-semibold text-cyan-300 ">Balance: </span>
+          <span className="font-semibold text-blue-500 text-xl font-mono ">
+            Balance:{" "}
+          </span>
           {formattedBalance}
         </>
       </p>

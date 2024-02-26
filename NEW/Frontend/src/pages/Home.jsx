@@ -101,7 +101,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center flex-col md:ml-44 ">
+      <div className="flex justify-center items-center flex-col md:ml-44  ">
         <Items />
       </div>
       <div className="text-white flex items-center justify-center flex-col text-6xl font-bold mt-20 ">
