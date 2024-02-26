@@ -2,11 +2,7 @@
   "name": "cos30049",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {  
-    "name": "@my-app/contracts",
-    "version": "1.0.0",
-    "main": "./src/index.js",
-    "@apollo/client": "^3.5.10",
+  "dependencies": {
     "@ethersproject/contracts": "^5.6.0",
     "@ethersproject/providers": "^5.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
