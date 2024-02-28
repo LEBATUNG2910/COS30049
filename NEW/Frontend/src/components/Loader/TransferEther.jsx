@@ -12,6 +12,15 @@ const TransferEther = ({ updateTransactionHistory }) => {
   const [transactionHash, setTransactionHash] = useState("");
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [buttonColor, setButtonColor] = useState("black");
+
+  const handleMouseEnter = () => {
+    setButtonColor("red");
+  };
+
+  const handleMouseLeave = () => {
+    setButtonColor("black");
+  };
 
   const handleTransfer = async () => {
     try {
@@ -75,30 +84,36 @@ const TransferEther = ({ updateTransactionHistory }) => {
       {loading && <p>Loading...</p>}
       {!transactionSuccess && !loading && (
         <>
-          <p>ETH Transaction </p>
+          <p className=" text-3xl font-mono">ETH Transaction </p>
           {error && <p className={styles.error}>{error}</p>}
           <input
             type="text"
             placeholder="Sender's Address"
             value={senderAddress}
             onChange={(e) => setSenderAddress(e.target.value)}
-            className="mt-5 rounded-lg border-2"
+            className="mt-5 rounded-lg border-4 text-xl p-1"
           />
           <input
             type="number"
             placeholder="Amount to Send (ETH)"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="mt-5 rounded-lg border-2"
+            className="mt-5 rounded-lg border-4 text-xl p-1"
           />
           <input
             type="text"
             placeholder="Receiver's Address"
             value={receiverAddress}
             onChange={(e) => setReceiverAddress(e.target.value)}
-            className="mt-5 rounded-lg border-2"
+            className="mt-5 rounded-lg border-4 text-xl p-1"
           />
-          <button onClick={handleTransfer} className="mt-5">
+          <button
+            onClick={handleTransfer}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ color: buttonColor }}
+            className="mt-5 text-xl font-bold font-mono "
+          >
             Transfer Ether
           </button>
         </>
