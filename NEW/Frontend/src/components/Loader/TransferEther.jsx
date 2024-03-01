@@ -95,7 +95,7 @@ const TransferEther = ({ updateTransactionHistory }) => {
           />
           <input
             type="number"
-            placeholder="Amount to Send (ETH)"
+            placeholder="$0 ETH"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             className="mt-5 rounded-lg border-4 text-xl p-1"
