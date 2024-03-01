@@ -1,20 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+{/* Trade Token 1 */}
 const Item = ({ title, content, imageSrcArray, borderRadius }) => (
   <div
-    className="item text-black"
-    style={{
-      borderRadius: "15px",
-      backgroundColor: "#e2e8f0",
-      padding: "20px",
-      width: "500px",
-      margin: "20px",
-      marginRight: "50px",
-      marginTop: "80px",
-      fontFamily: "BinancePlex, Arial, sans-serif",
-    }}
-  >
+  className="item text-black md:m-5 m-0 w-max md:mr-0 mr-4 justify-center items-center "
+  style={{
+    borderRadius: "15px",
+    backgroundColor: "#e2e8f0", 
+    padding: "20px",
+    marginTop: "80px",
+    fontFamily: "BinancePlex, Arial, sans-serif",
+  }}
+>
     {imageSrcArray && (
       <div style={{ display: "flex" }}>
         {imageSrcArray.map((src, index) => (
@@ -22,7 +19,7 @@ const Item = ({ title, content, imageSrcArray, borderRadius }) => (
             key={index}
             src={src}
             alt={`${title}-image-${index}`}
-            className="h-15 w-15 mb-5 ml-16"
+            className="mb-5 md:ml-10 md:mr-7 md:h-15 md:w-15 ml-5 mr-6 items-center"
           />
         ))}
       </div>
@@ -33,19 +30,16 @@ const Item = ({ title, content, imageSrcArray, borderRadius }) => (
     </Link>
   </div>
 );
-
+{/* Trade NFTs 1 */}
 const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
-  <div
-    className="item text-black mt-10"
+ <div
+    className="item text-black md:m-5 m-0 w-max md:mr-0 mr-2 "
     style={{
       borderRadius: "15px",
-      backgroundColor: "#e2e8f0",
-      padding: "20px",
-      width: "500px",
-      margin: "20px",
-      marginRight: "50px",
-      marginTop: "80px",
-      fontFamily: "BinancePlex, Arial, sans-serif",
+    backgroundColor: "#e2e8f0",
+    padding: "20px",
+    marginTop: "80px",
+    fontFamily: "BinancePlex, Arial, sans-serif",
     }}
   >
     {imageSrcArray && (
@@ -55,7 +49,7 @@ const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
             key={index}
             src={src}
             alt={`${title}-image-${index}`}
-            className="mb-5 ml-16 h-15 w-15"
+            className="mb-5 md:ml-10 md:mr-7 md:h-15 md:w-15 ml-5 mr-6"
           />
         ))}
       </div>
@@ -66,10 +60,10 @@ const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
     </Link>
   </div>
 );
-
+{/* Trade Token 2 */}
 const Items = () => (
-  <div className="container flex md:flex-row flex-col ">
-    <div className="font-bold text-xl flex items-center">
+  <div className="container flex md:flex-row flex-col justify-center">
+    <div className="font-bold text-lg flex md:items-center md:justify-center ">
       <Item
         title="Buy, sell and explore tokens on BITWALLS"
         content="Trade Tokens"
@@ -81,9 +75,9 @@ const Items = () => (
         borderRadius="10px"
       />
     </div>
-
-    <div className="container flex md:flex-row flex-col">
-      <div className="font-bold text-lg flex items-center">
+{/* Trade NFTs 2*/}
+    <div className="container flex md:flex-row flex-col justify-center md:ml-0 ">
+      <div className="font-bold text-lg flex md:items-center md:justify-center ">
         <Itemm
           title="Buy, sell NFTS across marketplaces"
           content="Trade NFTs"
