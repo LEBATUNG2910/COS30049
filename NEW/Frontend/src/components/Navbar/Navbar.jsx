@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
   return (
-    <nav className="bg-black p-4 opacity-100">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-black p-4 opacity-100 ">
+      <div className="container mx-auto flex justify-between items-center xl:flex-row flex-col ">
         {/* Brand/Logo */}
-        <div className="flex flex-start text-3xl text-white">
+        <div className="flex flex-start text-3xl text-white ">
           <Link to="./Home">
             <img
               src={process.env.PUBLIC_URL + "/images/crypto.png"}
               alt="blockchain"
-              className="h-14 w-14 md:h-20 md:w-20"
+              className="sm:h-14 sm:w-14 lg:h-20 lg:w-20 w-12 h-12"
             />
           </Link>
           <Link to="./Home">
-            <h1 className="ml-3 md:text-2xl text-lg mt-2">
+            <h1 className="ml-3 lg:text-2xl text-lg lg:mt-2">
               <strong>
                 BIT
                 <br />
@@ -31,34 +25,12 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden cursor-pointer" onClick={toggleDropdown}>
-          <svg
-            className="h-6 w-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </div>
-
         {/* Navigation Links */}
-        <div
-          className={`${
-            isDropdownOpen ? "block" : "hidden"
-          } md:flex md:space-x-4 text-2xl mt-2 md:mt-0`}
-        >
+        <div className="md:flex sm:space-x-4 text-2xl mt-2 md:mt-0 ">
           {/* Dashboard Link */}
           <Link
             to="./Dashboard"
-            className="text-white md:text-2xl text-base hover:text-pink-600 p-2"
+            className="text-white sm:text-2xl text-lg hover:text-pink-600 p-2 "
           >
             <strong>Profile</strong>
           </Link>
@@ -66,7 +38,7 @@ function Navbar() {
           {/* Home Link */}
           <Link
             to="./Home"
-            className="text-white md:text-2xl text-base hover:text-pink-600 p-2"
+            className="text-white sm:text-2xl text-lg hover:text-pink-600 p-2"
           >
             <strong>Home</strong>
           </Link>
@@ -74,7 +46,7 @@ function Navbar() {
           {/* Signup Link */}
           <Link
             to="./Signup"
-            className="text-white md:text-2xl text-base hover:text-pink-600 p-2"
+            className="text-white sm:text-2xl text-lg hover:text-pink-600 p-2"
           >
             <strong>Sign Up</strong>
           </Link>
@@ -82,7 +54,7 @@ function Navbar() {
           {/* Log In Link */}
           <Link
             to="./Login"
-            className="text-white md:text-2xl text-lg hover:text-pink-600 p-2"
+            className="text-white sm:text-2xl text-lg hover:text-pink-600 p-2"
           >
             <strong>Log In</strong>
           </Link>

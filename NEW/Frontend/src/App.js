@@ -28,6 +28,7 @@ function App() {
             <Route path="/Home" element={<Home />} />
             <Route path="/NFTs" element={<NFTs />} />
             <Route path="/Signup" element={<Signup />} />
+            <Route path="/Home/Register" element={<Register />} />
             <Route path="/Signup/Register" element={<Register />} />
             <Route path="/Signup/Login" element={<Login />} />
             <Route path="/Login" element={<Login />} />

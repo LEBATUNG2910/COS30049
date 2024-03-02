@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
-    <div className=" overflow-hidden flex md:items-start  min-h-screen text-white md:flex-row flex-col pb-12  ">
-      <div className=" md:items-start md:p-2 md:ml-40 md:justify-center md:max-w-lg md:text-justify md:mt-40 items-center">
-        <h1 className="md:mt-4 md:text-center md:text-6xl text-4xl text-center mt-6">
+    <div className=" overflow-hidden flex xl:items-start justify-center h-screen text-white xl:flex-row flex-col pb-12  ">
+      <div className=" xl:items-start md:p-2  xl:justify-center xl:text-justify lg:pt-48 lg:items-center xl:w-1/2 ">
+        <h1 className="md:mt-4 text-center lg:text-6xl md:text-5xl text-4xl lg:text-center ">
           <strong>Welcome to Bitwalls! </strong>
         </h1>
         {/* Sign Up Button*/}
-        <div className="flex flex-col items-center justify-center md:mt-0">
+        <div className="flex flex-col items-center justify-center pt-4 ">
           <Link to="./Register ">
-            <button className="bg-[#FCD535] hover:bg-[#d8b734] text-black text-base py-2 rounded md:mt-10 mt-5 pr-5 pl-3 flex items-center">
+            <button className="bg-[#FCD535] hover:bg-[#d8b734] text-black text-base md:text-lg py-2 px-2 rounded md:mt-10 w-full  flex items-center">
               <img
                 src="./images/user.png"
                 alt="user"
@@ -24,7 +24,7 @@ function SignUp() {
           </Link>
         </div>
         {/* Or part*/}
-        <div className="flex items-center md:mt-10 mt-5">
+        <div className="flex items-center md:mt-10 mt-5 xl:w-10/12 xl:pl-20 justify-center">
           <div className="border-t border-gray-500 flex-grow"></div>
           <div className="mx-4 text-gray-500 text-xl">or</div>
           <div className="border-t border-gray-500 flex-grow"></div>
@@ -42,13 +42,13 @@ function SignUp() {
           </p>
         </div>
       </div>
-      <div className="md:flex md:flex-col md:items-center md:justify-center md:mt-0 mt-18">
+      <div className="lg:flex lg:flex-col items-center justify-center md:mt-0 ">
         <img
           src="./images/pic.png"
           alt="user"
-          className="mt-28 w-9/12 ml-14 h-auto flex-shrink-0"
+          className="lg:pt-24 lg:w-9/12  flex-shrink-0 items-center justify-center "
         />
-        <div className="md:text-center mt-12 md:text-xl text-lg font-sans md:w-9/12 text-center ">
+        <div className="md:text-center mt-12 md:text-xl text-lg font-sans xl:w-9/12 text-center ">
           <p>
             Unlock{" "}
             <strong className="text-yellow-500 md:text-2xl text-xl">50%</strong>{" "}
