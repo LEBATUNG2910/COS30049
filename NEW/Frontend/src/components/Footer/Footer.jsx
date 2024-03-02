@@ -9,57 +9,61 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-black text-white  ">
-      <div className=" mx-auto flex flex-col md:flex-row justify-between items-center px-4 z-0">
+      <div className=" mx-auto flex flex-col md:flex-row justify-between items-center ">
         <div className="mt-4  ">
           <div className="flex items-center justify-center text-2xl p-5 font-bold">
             Community
           </div>
-          <a
-            href="https://www.facebook.com/quyeen.ngoc.9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-4 ml-5"
-          >
-            <FontAwesomeIcon
-              icon={faFacebook}
-              size="2x"
-              className="text-3xl md:text-xl lg:text-4xl"
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/_lebatuuuu2910_/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-4"
-          >
-            <FontAwesomeIcon
-              icon={faInstagram}
-              size="2x "
-              className="text-3xl md:text-xl lg:text-4xl"
-            />
-          </a>
-          <a
-            href="https://discord.gg/paYyqJCQ"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-4"
-          >
-            <FontAwesomeIcon
-              icon={faDiscord}
-              size="2x"
-              className="text-3xl md:text-xl lg:text-4xl"
-            />
-          </a>
+          <div className="ml-2">
+            <a
+              href="https://www.facebook.com/quyeen.ngoc.9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-4 ml-5"
+            >
+              <FontAwesomeIcon
+                icon={faFacebook}
+                size="2x"
+                className="text-3xl md:text-xl lg:text-4xl"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/_lebatuuuu2910_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-4"
+            >
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x "
+                className="text-3xl md:text-xl lg:text-4xl"
+              />
+            </a>
+            <a
+              href="https://discord.gg/paYyqJCQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-4"
+            >
+              <FontAwesomeIcon
+                icon={faDiscord}
+                size="2x"
+                className="text-3xl md:text-xl lg:text-4xl"
+              />
+            </a>
+          </div>
         </div>
         {/* You can also add more social media icons similarly */}
-        <div className="mb-4 md:mb-0 ">
-          <h4 className="md:text-2xl md:mb-2 md:mr-10 font-bold">About Us</h4>
-          <p className="md:text-xl">Ngoc Quyen</p>
-          <p className="md:text-xl">Ba Tung</p>
-          <p className="md:text-xl">Thuan Khang</p>
+        <div className="flex items-center justify-center flex-col md:mr-10">
+          <h4 className="text-2xl mt-5  font-bold">About Us</h4>
+          <p className="text-xl">Ngoc Quyen</p>
+          <p className="text-xl">Ba Tung</p>
+          <p className="text-xl">Thuan Khang</p>
         </div>
         <div>
-          <h4 className="md:text-2xl md:mb-2 font-bold">Product</h4>
+          <h4 className="text-2xl mt-5 font-bold flex items-center justify-center flex-col">
+            Product
+          </h4>
           <p className="md:text-xl">Exchange Coin</p>
           <p className="md:text-xl">Buy Crypto</p>
           <p className="md:text-xl">Trade NFTs</p>

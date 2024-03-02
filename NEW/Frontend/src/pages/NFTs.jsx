@@ -49,7 +49,7 @@ function NFTs() {
             </strong>
           </h1>
         </div>
-        <div className="mt-20 ">
+        <div className="mt-20 md:mx-auto ">
           <Arrow />
         </div>
       </div>
