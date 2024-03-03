@@ -89,7 +89,7 @@ function Home() {
       </div>
       {/*Three Guarantees*/}
       <div className="  flex   xl:mr-10 text-white xl:mt-20 justify-center ">
-        <div className="flex  md:text-xl text-lg  xl:w-screen xl:flex-row flex-col items-center justify-center text-center">
+        <div className="flex  xl:text-xl text-lg  xl:w-screen xl:flex-row flex-col items-center justify-center text-center">
           <div className="flex items-center mt-10 lg:ml-10 ">
             <img src="./images/ok.png" alt="ok" className="md:h-19 md:w-19  h-16 w-16  md:ml-3 " />
             <p className="xl:max-w-xs md:flex-shrink-0 m-0 md:whitespace-pre-line ml-3 ">
@@ -97,7 +97,7 @@ function Home() {
               globally.
             </p>
           </div>
-          <div className=" flex items-center mt-10 lg:ml-10   lg:pl-20 pl-0 ">
+          <div className=" flex items-center mt-10   xl:pl-20 pl-0 ">
             <img
               src="./images/secure.png"
               alt="protect"
@@ -107,7 +107,7 @@ function Home() {
               Secure digital transactions, thwart cybercriminals.
             </p>  
           </div>
-          <div className=" flex items-center mt-10    lg:pl-20">
+          <div className=" flex items-center mt-10    xl:pl-20">
             <img
               src="./images/correct.png"
               alt="protect"

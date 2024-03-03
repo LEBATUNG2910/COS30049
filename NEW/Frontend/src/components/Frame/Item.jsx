@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 {/* Trade Token 1 */}
 const Item = ({ title, content, imageSrcArray, borderRadius }) => (
   <div
-  className="item text-black lg:m-5 m-0 w-max lg:mr-0 mr-4 justify-center items-center "
+  className="item text-black lg:m-5 m-0 w-max xl:mr-0 mr-4 justify-center items-center "
   style={{
     borderRadius: "15px",
     backgroundColor: "#e2e8f0", 
