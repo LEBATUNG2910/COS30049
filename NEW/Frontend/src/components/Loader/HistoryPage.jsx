@@ -1,52 +1,63 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 const HistoryPage = () => {
   const [transactions, setTransactions] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchTransactionHistory() {
+    const fetchTransactions = async () => {
       try {
-        const address = "0xYOUR_ADDRESS"; // Replace with the actual Ethereum address
+        if (window.ethereum) {
+          const accounts = await window.ethereum.request({ method: "eth_accounts" });
 
-        const response = await axios.get(
-          `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=desc&apikey=YOUR_API_KEY`
-        );
+          if (accounts.length > 0) {
+            const ADDRESS = accounts[0];
+            const API_KEY = "9MK8TYQWGNUAXXJHIVIK7X5C7VWH2M6JYY";
+            const TESTNET_API_URL = `https://api-sepolia.etherscan.io/api`;
 
-        if (response.data.status === "1") {
-          setTransactions(response.data.result);
-        } else {
-          setError(response.data.message);
+            const url = `${TESTNET_API_URL}?module=account&action=txlist&address=${ADDRESS}&startblock=0&endblock=99999999&sort=desc&apikey=${API_KEY}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.status === "1") {
+              setTransactions(data.result);
+            } else {
+              throw new Error(data.message);
+            }
+          }
         }
       } catch (error) {
-        console.error("Error fetching transaction history:", error);
-        setError("Failed to fetch transaction history");
+        setError(error.message);
       }
-    }
+    };
 
-    fetchTransactionHistory();
+    fetchTransactions();
   }, []);
 
-  return (
-    <div>
-      <h1 className="text-red-500">Transaction History</h1>
-      {error ? (
-        <p className="text-red-500">Error: {error}</p>
-      ) : (
-        <ul>
-          {transactions.map((tx, index) => (
-            <li key={index}>
-              <p>Transaction Hash: {tx.hash}</p>
-              <p>From: {tx.from}</p>
-              <p>To: {tx.to}</p>
-              <p>Value: {tx.value} wei</p>
-            </li>
+  const renderTransactions = () => {
+    if (error) {
+      return <p>Error: {error}</p>;
+    } else if (transactions.length === 0) {
+      return <p>No transactions found.</p>;
+    } else {
+      return (
+        <div>
+          {transactions.map((transaction, index) => (
+            <div key={index}>
+              <p className="text-blue-500">Hash: {transaction.hash}</p>
+              <p className="text-red-500">From: {transaction.from}</p>
+              <p className="text-red-500">To: {transaction.to}</p>
+              <p className="text-red-500">Value: {Number(transaction.value) / 10 ** 18} ETH</p>
+              <p className="text-red-500">Timestamp: {new Date(transaction.timeStamp * 1000).toLocaleString()}</p>
+              <hr />
+            </div>
           ))}
-        </ul>
-      )}
-    </div>
-  );
+        </div>
+      );
+    }
+  };
+
+  return <div>{renderTransactions()}</div>;
 };
 
 export default HistoryPage;
