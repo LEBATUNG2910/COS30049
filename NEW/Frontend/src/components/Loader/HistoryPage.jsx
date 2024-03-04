@@ -3,12 +3,15 @@ import React, { useState, useEffect } from "react";
 const HistoryPage = () => {
   const [transactions, setTransactions] = useState([]);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
         if (window.ethereum) {
-          const accounts = await window.ethereum.request({ method: "eth_accounts" });
+          const accounts = await window.ethereum.request({
+            method: "eth_accounts",
+          });
 
           if (accounts.length > 0) {
             const ADDRESS = accounts[0];
@@ -33,6 +36,9 @@ const HistoryPage = () => {
 
     fetchTransactions();
   }, []);
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
 
   const renderTransactions = () => {
     if (error) {
@@ -42,13 +48,35 @@ const HistoryPage = () => {
     } else {
       return (
         <div>
+          <p className="text-white flex items-center justify-center mb-10 text-5xl font-mono">
+            Transaction History
+          </p>
+          <input
+            type="text"
+            placeholder="Search previous transaction"
+            value={search}
+            onChange={handleSearchChange}
+            className="block mx-auto mb-10 px-4 py-2 border bg-black border-gray-300 text-white w-[30%] rounded-xl"
+          />
           {transactions.map((transaction, index) => (
-            <div key={index}>
-              <p className="text-blue-500">Hash: {transaction.hash}</p>
-              <p className="text-red-500">From: {transaction.from}</p>
-              <p className="text-red-500">To: {transaction.to}</p>
-              <p className="text-red-500">Value: {Number(transaction.value) / 10 ** 18} ETH</p>
-              <p className="text-red-500">Timestamp: {new Date(transaction.timeStamp * 1000).toLocaleString()}</p>
+            <div className="flex flex-col items-center justify-center rounded-full border-2 bg-gray-800 border-violet-500 p-4 mx-auto md:w-[50%] w-[95%] font-mono  ">
+              <p className="text-red-500 text-xs md:text-sm">
+                Hash:
+                {transaction.hash}
+              </p>
+              <p className="text-emerald-500 text-xs md:text-sm mt-1">
+                From: {transaction.from}
+              </p>
+              <p className="text-blue-400 text-xs md:text-sm mt-1">
+                To: {transaction.to}
+              </p>
+              <p className="text-white text-xs md:text-sm mt-1">
+                Value: {Number(transaction.value) / 10 ** 18} ETH
+              </p>
+              <p className="text-white text-xs md:text-sm mt-1">
+                Timestamp:{" "}
+                {new Date(transaction.timeStamp * 1000).toLocaleString()}
+              </p>
               <hr />
             </div>
           ))}

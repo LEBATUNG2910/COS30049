@@ -99,57 +99,6 @@ function NFTs() {
           </div>
         )}
       </div>
-      {/* Transaction History Section */}
-      {showTransactionHistory && (
-        <div className="text-white  flex items-center justify-center flex-col mx-auto mt-20 ">
-          <strong>
-            <h2 className="text-5xl  md:mx-auto ml-20 mb-10 ">
-              Transaction History
-            </h2>
-          </strong>
-          <input
-            className="border-2 p-2 rounded-xl w-2/5 mb-10 bg-black text-white   block"
-            placeholder="Search transaction history"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          <div className=" text-white  flex items-center justify-center">
-            <strong className="text-center text-4xl  mb-10 ">
-              Buying History
-            </strong>
-          </div>
-          {filteredHistory.length > 0 ? (
-            <div>
-              <table
-                striped
-                bordered
-                hover
-                className="text-red-600 text-xl flex space-x-10 "
-              >
-                <thead>
-                  <tr>
-                    <th className=" text-pink-500">Nfts ID</th>
-                    <th className=" text-pink-500">Date</th>
-                    <th className=" text-pink-500">From</th>
-                    <th className=" text-pink-500">To</th>
-                  </tr>
-
-                  {filteredHistory.map((contact, index) => (
-                    <tr key={index} className=" ">
-                      <td className="px-4">{contact.buyID}</td>
-                      <td className="px-4">{contact.date}</td>
-                      <td className="px-4">{contact.from}</td>
-                      <td className="px-4">{contact.to}</td>
-                    </tr>
-                  ))}
-                </thead>
-              </table>
-            </div>
-          ) : (
-            <div>No information found</div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

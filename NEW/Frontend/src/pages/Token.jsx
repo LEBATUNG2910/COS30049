@@ -10,7 +10,9 @@ const Token = () => {
   return (
     <div className="bg-black h-screen">
       <div className={styles.exchangeContainer}>
-        <h1 className={styles.headTitle}>BITWALLS COMPANY</h1>
+        <h1 className="text-white font-poppins font-black md:text-5xl text-3xl tracking-wide mb-10">
+          BITWALLS COMPANY
+        </h1>
         <div className={styles.exchangeBoxWrapper}>
           <div className={styles.exchangeBox}>
             {!account && (
