@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import Loginbutton from "../components/Button/Loginbutton";
+import LoginButton from "../components/Button/Loginbutton";
 
 function Login() {
   const navigate = useNavigate();
@@ -17,12 +17,12 @@ function Login() {
     e.preventDefault();
     const { email, password } = data;
 
-    try {
-      if (!email || !password) {
-        toast.error("Please enter your email and password.");
-        return;
-      }
+    if (!email || !password) {
+      toast.error("Please enter your email and password.");
+      return navigate("/login");
+    }
 
+    try {
       const response = await axios.post("/login", { email, password });
 
       if (response.data.error) {
@@ -39,7 +39,9 @@ function Login() {
 
         // Show success message using toast
         toast.success(`Login successful! Welcome, ${response.data.name}!`);
-        navigate("/Dashboard");
+
+        // Navigate to the token page
+        navigate("/Token");
       }
     } catch (error) {
       toast.error("Incorrect Password. Please try again.");
@@ -84,7 +86,7 @@ function Login() {
         </div>
         <div className="mt-5 text-4xl">
           <button onClick={LoginUser}>
-            <Loginbutton />
+            <LoginButton />
           </button>
         </div>
       </div>

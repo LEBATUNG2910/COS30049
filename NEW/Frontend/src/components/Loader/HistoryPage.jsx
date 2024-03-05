@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const HistoryPage = () => {
   const [transactions, setTransactions] = useState([]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -36,6 +37,14 @@ const HistoryPage = () => {
 
     fetchTransactions();
   }, []);
+
+  useEffect(() => {
+    const filtered = transactions.filter((transaction) =>
+      transaction.hash.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredTransactions(filtered);
+  }, [search, transactions]);
+
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
   };
@@ -43,12 +52,10 @@ const HistoryPage = () => {
   const renderTransactions = () => {
     if (error) {
       return <p>Error: {error}</p>;
-    } else if (transactions.length === 0) {
-      return <p>No transactions found.</p>;
     } else {
       return (
-        <div className="bg-black w-full h-full overflow-hidden">
-          <p className="text-white flex  justify-center mb-10 xl:text-5xl text-3xl font-mono text-center">
+        <div className="bg-black w-full h-screen ">
+          <p className="text-white flex justify-center mb-10 xl:text-5xl text-3xl font-mono text-center">
             Transaction History
           </p>
           <input
@@ -58,28 +65,34 @@ const HistoryPage = () => {
             onChange={handleSearchChange}
             className="block mx-auto mb-10 px-4 py-2 border bg-black border-gray-300 text-white w-[30%] rounded-xl"
           />
-          {transactions.map((transaction, index) => (
-            <div className="flex flex-col items-center justify-center rounded-lg border-2 bg-gray-800 border-violet-500 p-4  lg:mx-96 md:mx-52 font-mono mt-10 ">
-              <p className="text-red-500 text-xs md:text-sm text-center break-all  ">
-                Hash:
-                {transaction.hash}
-              </p>
-              <p className="text-emerald-500 text-xs md:text-sm mt-1 break-all">
-                From: {transaction.from}
-              </p>
-              <p className="text-blue-400 text-xs md:text-sm mt-1 break-all">
-                To: {transaction.to}
-              </p>
-              <p className="text-white text-xs md:text-sm mt-1 break-all">
-                Value: {Number(transaction.value) / 10 ** 18} ETH
-              </p>
-              <p className="text-white text-xs md:text-sm mt-1 break-all">
-                Timestamp:{" "}
-                {new Date(transaction.timeStamp * 1000).toLocaleString()}
-              </p>
-              <hr />
-            </div>
-          ))}
+          {filteredTransactions.length === 0 ? (
+            <p className=" text-red-700 text-center">No transactions found.</p>
+          ) : (
+            filteredTransactions.map((transaction, index) => (
+              <div
+                key={transaction.hash}
+                className="flex flex-col items-center justify-center rounded-lg border-2 bg-gray-800 border-violet-500 p-4  lg:mx-96 md:mx-52 font-mono mt-10 "
+              >
+                <p className="text-red-500 text-xs md:text-sm text-center break-all  ">
+                  Hash: {transaction.hash}
+                </p>
+                <p className="text-emerald-500 text-xs md:text-sm mt-1 break-all">
+                  From: {transaction.from}
+                </p>
+                <p className="text-blue-400 text-xs md:text-sm mt-1 break-all">
+                  To: {transaction.to}
+                </p>
+                <p className="text-white text-xs md:text-sm mt-1 break-all">
+                  Value: {Number(transaction.value) / 10 ** 18} ETH
+                </p>
+                <p className="text-white text-xs md:text-sm mt-1 break-all">
+                  Timestamp:{" "}
+                  {new Date(transaction.timeStamp * 1000).toLocaleString()}
+                </p>
+                <hr />
+              </div>
+            ))
+          )}
         </div>
       );
     }
