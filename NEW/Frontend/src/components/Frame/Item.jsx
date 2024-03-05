@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-{/* Trade Token 1 */}
+{
+  /* Trade Token 1 */
+}
 const Item = ({ title, content, imageSrcArray, borderRadius }) => (
   <div
-  className="item text-black lg:m-5 m-0 w-max xl:mr-0 mr-4 justify-center items-center "
-  style={{
-    borderRadius: "15px",
-    backgroundColor: "#e2e8f0", 
-    padding: "20px",
-    marginTop: "80px",
-    fontFamily: "BinancePlex, Arial, sans-serif",
-  }}
->
+    className="item text-black lg:m-5 m-0 w-max xl:mr-0 mr-4 justify-center items-center "
+    style={{
+      borderRadius: "15px",
+      backgroundColor: "#e2e8f0",
+      padding: "20px",
+      marginTop: "80px",
+      fontFamily: "BinancePlex, Arial, sans-serif",
+    }}
+  >
     {imageSrcArray && (
       <div style={{ display: "flex" }}>
         {imageSrcArray.map((src, index) => (
@@ -25,21 +27,23 @@ const Item = ({ title, content, imageSrcArray, borderRadius }) => (
       </div>
     )}
     <h2 className="flex text-center">{title}</h2>
-    <Link to="/Token">
+    <Link to="/Login">
       <p className="flex justify-center text-purple-700 text-2xl">{content}</p>
     </Link>
   </div>
 );
-{/* Trade NFTs 1 */}
+{
+  /* Trade NFTs 1 */
+}
 const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
- <div
+  <div
     className="item text-black lg:m-5 m-0 w-max lg:mr-0 mr-2 "
     style={{
       borderRadius: "15px",
-    backgroundColor: "#e2e8f0",
-    padding: "20px",
-    marginTop: "80px",
-    fontFamily: "BinancePlex, Arial, sans-serif",
+      backgroundColor: "#e2e8f0",
+      padding: "20px",
+      marginTop: "80px",
+      fontFamily: "BinancePlex, Arial, sans-serif",
     }}
   >
     {imageSrcArray && (
@@ -56,11 +60,13 @@ const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
     )}
     <h3 className="flex text-center">{title}</h3>
     <Link to="/NFTs">
-      <p className="flex justify-center text-purple-700 text-2xl">{content}</p> 
+      <p className="flex justify-center text-purple-700 text-2xl">{content}</p>
     </Link>
   </div>
 );
-{/* Trade  2 */}
+{
+  /* Trade  2 */
+}
 const Items = () => (
   <div className="container flex xl:flex-row flex-col justify-center">
     {/* Trade Tokens */}
@@ -76,7 +82,7 @@ const Items = () => (
         borderRadius="10px"
       />
     </div>
-  
+
     {/* Trade NFTs */}
     <div className="font-bold text-lg flex items-center justify-center">
       <Itemm
@@ -94,4 +100,3 @@ const Items = () => (
 );
 
 export default Items;
-
