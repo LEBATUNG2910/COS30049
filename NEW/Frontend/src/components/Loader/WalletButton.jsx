@@ -5,7 +5,6 @@ const WalletButton = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
 
   const handleButtonClick = () => {
-    // Your logic here
     setButtonClicked(true);
   };
 

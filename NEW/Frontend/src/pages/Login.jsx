@@ -17,20 +17,18 @@ function Login() {
     e.preventDefault();
     const { email, password } = data;
 
+    // Empty input check
     if (!email || !password) {
       toast.error("Please enter your email and password.");
-      return navigate("/login");
+      return navigate("/Login"); // Prevent navigation to the token page
     }
 
     try {
       const response = await axios.post("/login", { email, password });
 
       if (response.data.error) {
-        if (response.data.error.includes("password")) {
-          toast.error("Incorrect password. Please try again.");
-        } else {
-          toast.error(response.data.error);
-        }
+        toast.error(response.data.error);
+        return; // Prevent navigation to the token page
       } else {
         setData({ email: "", password: "" });
 
@@ -47,6 +45,7 @@ function Login() {
       toast.error("Incorrect Password. Please try again.");
     }
   };
+
 
   return (
     <div>

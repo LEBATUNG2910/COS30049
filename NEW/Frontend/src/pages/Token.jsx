@@ -21,14 +21,16 @@ const Token = () => {
               </div>
             )}
             {account && (
-              <div className="mt-5 flex flex-col items-center justify-center">
-                <TransferEther /> {/* Render the new component */}
+              <div className="mt-5 flex flex-col items-center justify-center"> 
+               {/* Render the new component */}
+                <TransferEther />
                 <p className="mt-5 text-pink-400 font-bold font-mono">
                   Connected Account:
                   <p>{account}</p>
                 </p>
-                <div className="mt-5 ">
-                  <Balance /> {/* Display the balance component */}
+                <div className="mt-5 "> 
+                {/* Display the balance component */}
+                  <Balance /> 
                 </div>
               </div>
             )}
