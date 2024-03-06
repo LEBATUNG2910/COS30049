@@ -8,7 +8,7 @@ const WalletButton = () => {
     setButtonClicked(true);
   };
 
-  return (
+  return ( 
     <div>
       <button onClick={handleButtonClick} className={styles.walletButton}>
         Connect Wallet
