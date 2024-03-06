@@ -54,7 +54,7 @@ const HistoryPage = () => {
       return <p>Error: {error}</p>;
     } else {
       return (
-        <div className="bg-black w-full h-screen ">
+        <div className="bg-black w-full home-bg h-full ">
           <p className="text-white flex justify-center mb-10 xl:text-5xl text-3xl font-mono text-center">
             Transaction History
           </p>
@@ -89,7 +89,7 @@ const HistoryPage = () => {
                   Timestamp:{" "}
                   {new Date(transaction.timeStamp * 1000).toLocaleString()}
                 </p>
-                <hr />
+                <br />
               </div>
             ))
           )}

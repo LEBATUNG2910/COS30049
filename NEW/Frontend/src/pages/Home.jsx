@@ -358,7 +358,7 @@ function Home() {
                   style={{ width: "90%" }}
                 ></div>
               </div>
-              <span className="text-base font-medium text-gray-500">90%</span>
+              <span className="text-base font-medium text-gray-400">90%</span>
             </div>
             <div className="flex items-center justify-center mt-4">
               <p className="text-base font-medium text-white ">4 star</p>
@@ -373,9 +373,7 @@ function Home() {
               </span>
             </div>
             <div className="flex items-center justify-center mt-4">
-              <p className="text-base font-medium text-white dark:text-blue-500 ">
-                3 star
-              </p>
+              <p className="text-base font-medium text-white">3 star</p>
               <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
                 <div
                   className="h-5 bg-yellow-300 rounded"
@@ -383,13 +381,11 @@ function Home() {
                 ></div>
               </div>
               <span className="text-base font-medium text-gray-500 dark:text-gray-400">
-                8%
+                12%
               </span>
             </div>
             <div className="flex items-center justify-center mt-4">
-              <p className="text-base font-medium text-white dark:text-blue-500 ">
-                2 star
-              </p>
+              <p className="text-base font-medium text-white ">2 star</p>
               <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
                 <div
                   className="h-5 bg-yellow-300 rounded"
@@ -397,13 +393,11 @@ function Home() {
                 ></div>
               </div>
               <span className="text-base font-medium text-gray-500 dark:text-gray-400">
-                4%
+                11%
               </span>
             </div>
             <div className="flex items-center justify-center mt-4">
-              <p className="text-base font-medium text-white dark:text-blue-500 ">
-                1 star
-              </p>
+              <p className="text-base font-medium text-white ">1 star</p>
               <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
                 <div
                   className="h-5 bg-yellow-300 rounded"
@@ -411,7 +405,7 @@ function Home() {
                 ></div>
               </div>
               <span className="text-base font-medium text-gray-500 dark:text-gray-400">
-                2%
+                10%
               </span>
             </div>
           </div>
