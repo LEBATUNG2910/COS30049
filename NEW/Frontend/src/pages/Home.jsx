@@ -149,9 +149,9 @@ function Home() {
         <img
           src="./images/hacker.png"
           alt="hacker"
-          className="rounded-full md:h-40 md:w-40 h-20 w-20 bg-white mr-14"
+          className="rounded-full md:h-40 md:w-40 h-20 w-20 bg-white mr-8"
         />
-        <div className="flex flex-col ml-10 text-center h-1/3">
+        <div className="flex flex-col ml-10 text-center h-1/3 mr-10">
           <p className="mb-2">
             Nguyen Thuan Khang, creator of "Sign Up" and "Trade NFTs" sites.
           </p>
