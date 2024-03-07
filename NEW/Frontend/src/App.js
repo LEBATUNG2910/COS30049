@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/Dashboard";
 import NFTs from "./pages/NFTs";
 import Token from "./pages/Token";
-import { Web3Provider } from './pages/Web3Context';
+import { Web3Provider } from "./pages/Web3Context";
 import HistoryPage from "./components/Loader/HistoryPage";
 
 axios.defaults.baseURL = "http://localhost:8000";
@@ -34,8 +34,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Token" element={<Token />} />
-            <Route path="/history" element={<HistoryPage />} /> {/* Route for the history page */}
-
+            <Route path="/history" element={<HistoryPage />} />{" "}
+            {/* Route for the history page */}
           </Routes>
         </div>
       </Web3Provider>
