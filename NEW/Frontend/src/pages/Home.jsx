@@ -145,11 +145,11 @@ function Home() {
       <div className="text-white flex items-center justify-center flex-col md:text-6xl text-5xl font-bold mt-20 ">
         Founders
       </div>
-      <div className="flex flex-row lg:text-2xl text-lg font-medium items-center justify-center text-white mmdt-20 md:ml-20 pt-8">
+      <div className="flex flex-row lg:text-2xl text-lg font-medium items-center justify-center text-white md:ml-20 pt-8">
         <img
           src="./images/hacker.png"
           alt="hacker"
-          className="rounded-full md:h-40 md:w-40 h-20 w-20 bg-white"
+          className="rounded-full md:h-40 md:w-40 h-20 w-20 bg-white mr-14"
         />
         <div className="flex flex-col ml-10 text-center h-1/3">
           <p className="mb-2">
@@ -396,7 +396,7 @@ function Home() {
                 11%
               </span>
             </div>
-            <div className="flex items-center justify-center mt-4">
+            <div className="flex items-center justify-center mt-4 ml-1">
               <p className="text-base font-medium text-white ">1 star</p>
               <div className="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
                 <div
