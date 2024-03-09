@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "../components/style";
 import MetaMaskConnectButton from "../components/Button/WalletConnect";
 import TransferEther from "../components/Loader/TransferEther"; // Import the new component
@@ -13,7 +13,7 @@ const Token = () => {
         <h1 className="text-white font-poppins font-black md:text-5xl text-3xl tracking-wide mb-10">
           BITWALLS COMPANY
         </h1>
-        <div className={styles.exchangeBoxWrapper}>
+        <div className={styles.exchangeBoxWrapper}> 
           <div className={styles.exchangeBox}>
             {!account && (
               <div className={styles.exchange}>
@@ -24,10 +24,6 @@ const Token = () => {
               <div className="mt-5 flex flex-col items-center justify-center"> 
                {/* Render the new component */}
                 <TransferEther />
-                <p className="mt-5 text-pink-400 font-bold font-mono">
-                  Connected Account:
-                  <p>{account}</p>
-                </p>
                 <div className="mt-5 "> 
                 {/* Display the balance component */}
                   <Balance /> 
@@ -42,3 +38,4 @@ const Token = () => {
 };
 
 export default Token;
+// q

@@ -1,11 +1,13 @@
 // TransferEther.js
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { ethers } from "ethers";
 import { Link } from "react-router-dom";
 import styles from "../style";
+import { Web3Context } from "../../pages/Web3Context";
 
-const TransferEther = ({ updateTransactionHistory }) => {
-  const [senderAddress, setSenderAddress] = useState("");
+const TransferEther = ({ updateTransactionHistory }) => { 
+  const { account } = useContext(Web3Context);
+  const [senderAddress] = account;
   const [amount, setAmount] = useState("");
   const [receiverAddress, setReceiverAddress] = useState("");
   const [error, setError] = useState("");
@@ -89,8 +91,7 @@ const TransferEther = ({ updateTransactionHistory }) => {
           <input
             type="text"
             placeholder="Sender's Address"
-            value={senderAddress}
-            onChange={(e) => setSenderAddress(e.target.value)}
+            value={account}
             className="mt-5 rounded-lg border-4 text-xl p-1"
           />
           <input
@@ -148,3 +149,4 @@ const TransferEther = ({ updateTransactionHistory }) => {
 };
 
 export default TransferEther;
+// q 
