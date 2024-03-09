@@ -82,8 +82,8 @@ function NFTs() {
                   className="w-1/2 h-auto flex-shrink-0 border-2 rounded p-1"
                 />
                 <div className="bg-slate-500 w-1/2 border-2 p-1">
-                  <h3 className="nfts name">{nft.name}</h3>
-                  <h3 className="nfts id">{nft.id}</h3>
+                  <h3 className=" text-white font-bold">{nft.name}</h3>
+                  <h3 className="text-white ">{nft.id}</h3>
 
                   <div className="flex items-center">
                     <img
@@ -91,7 +91,7 @@ function NFTs() {
                       alt="Ethereum Icon"
                       className="mr-1 w-5 h-5 flex-shrink-0"
                     />
-                    <h3 className="etherium number">{nft.number}</h3>
+                    <h3 className="text-white font-bold">{nft.number}</h3>
                   </div>
                 </div>
               </div>
