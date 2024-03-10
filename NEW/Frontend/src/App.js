@@ -13,7 +13,7 @@ import Token from "./pages/Token";
 import { Web3Provider } from "./pages/Web3Context";
 import HistoryPage from "./components/Loader/HistoryPage";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
 
 function App() {

@@ -20,33 +20,39 @@ function Login() {
     // Empty input check
     if (!email || !password) {
       toast.error("Please enter your email and password.");
-      return navigate("/Login"); // Prevent navigation to the token page
-    }   
-
+      return;
+    }
 
     try {
-      const response = await axios.post("/login", { email, password });
+      const response = await axios.post("http://localhost:8000/login", {
+        email,
+        password,
+      });
 
+      setData({ email: "", password: "" });
+
+      // Check if login was successful
       if (response.data.error) {
         toast.error(response.data.error);
-        return navigate("/Login"); // Prevent navigation to the token page
       } else {
-        setData({ email: "", password: "" });
-
         // Set a cookie with the user's email
-        setCookie("user", response.data.name, { path: "/" });
+        setCookie("user", response.data.user.name, { path: "/" });
 
         // Show success message using toast
-        toast.success(`Login successful! Welcome, ${response.data.name}!`);
+        toast.success(`Login successful! Welcome, ${response.data.user.name}!`);
 
         // Navigate to the token page
         navigate("/Token");
       }
     } catch (error) {
-      toast.error("Incorrect Password. Please try again.");
+      if (error.response && error.response.status === 401) {
+        toast.error("Invalid email or password.");
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+      console.error("Error logging in user:", error);
     }
   };
-
 
   return (
     <div>
