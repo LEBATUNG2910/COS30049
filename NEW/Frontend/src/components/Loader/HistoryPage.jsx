@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Web3 from "web3";
 
 const HistoryPage = () => {
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
+  const [balance, setBalance] = useState(0);
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -25,6 +27,15 @@ const HistoryPage = () => {
 
             if (data.status === "1") {
               setTransactions(data.result);
+              const balanceResponse = await window.ethereum.request({
+                method: "eth_getBalance",
+                params: [ADDRESS, "latest"],
+              });
+              const web3 = new Web3(window.ethereum);
+              const etherValue = parseFloat(
+                web3.utils.fromWei(balanceResponse, "ether")
+              );
+              setBalance(etherValue);
             } else {
               throw new Error(data.message);
             }
@@ -58,6 +69,9 @@ const HistoryPage = () => {
           <p className="text-white flex justify-center mb-10 xl:text-5xl text-3xl font-mono text-center">
             Transaction History
           </p>
+          <p className="text-white flex justify-center mb-5 xl:text-2xl text-xl font-mono text-center">
+            Wallet Balance: {balance} ETH
+          </p>
           <input
             type="text"
             placeholder="Search previous transaction"
@@ -83,7 +97,7 @@ const HistoryPage = () => {
                   To: {transaction.to}
                 </p>
                 <p className="text-white text-xs md:text-sm mt-1 break-all">
-                  Value: {Number(transaction.value) / 10 ** 18} ETH
+                  Value: {Web3.utils.fromWei(transaction.value, 'ether')} ETH
                 </p>
                 <p className="text-white text-xs md:text-sm mt-1 break-all">
                   Timestamp:{" "}
