@@ -58,7 +58,7 @@ const Itemm = ({ title, content, imageSrcArray, borderRadius }) => (
         ))}
       </div>
     )}
-    <h3 className="flex text-center">{title}</h3>
+    <h2 className="flex text-center justify-center">{title}</h2>
     <Link to="/NFTs">
       <p className="flex justify-center text-purple-700 text-2xl">{content}</p>
     </Link>

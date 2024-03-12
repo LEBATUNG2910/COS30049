@@ -136,7 +136,7 @@ function Register() {
                   </label>
                   <input
                     type="text"
-                    className={`border-2 p-1.5 px-10 mt-0 rounded w-full bg-black text-white transition ${
+                    className={`border-2 p-1.5  mt-0 rounded w-full bg-black text-white transition ${
                       hoveredState.name
                         ? "md:border-pink-500 border-pink-500 shadow-md"
                         : "border-slate-600"
@@ -171,7 +171,7 @@ function Register() {
                   </label>
                   <input
                     type="text"
-                    className={`border-2 p-1.5 px-10 mt-0 rounded w-full bg-black text-white transition ${
+                    className={`border-2 p-1.5  mt-0 rounded w-full bg-black text-white transition ${
                       hoveredState.email
                         ? "md:border-pink-500 border-pink-500 shadow-md"
                         : "border-slate-600"
@@ -205,7 +205,7 @@ function Register() {
                   </label>
                   <input
                     type="password"
-                    className={`border-2 p-1.5 px-10 mt-0 rounded w-full bg-black text-white transition ${
+                    className={`border-2 p-1.5 mt-0 rounded w-full bg-black text-white transition ${
                       hoveredState.password
                         ? "md:border-pink-500 border-pink-500 shadow-md"
                         : "border-slate-600"
@@ -230,7 +230,7 @@ function Register() {
                   </label>
                   <input
                     type="password"
-                    className={`border-2 p-1.5 px-10 mt-0 rounded w-full bg-black text-white transition ${
+                    className={`border-2 p-1.5  mt-0 rounded w-full bg-black text-white transition ${
                       hoveredState.retypePassword
                         ? "md:border-pink-500 border-pink-500 shadow-md"
                         : "border-slate-600"

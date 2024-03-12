@@ -216,7 +216,7 @@ function Home() {
             <p>
               Cryptocurrency exchanges are digital marketplaces that enable
               users to buy and sell cryptocurrencies like Bitcoin, Ethereum, and
-              Tether. The Binance exchange is the largest crypto exchange by
+              Tether. The Bitwalls exchange is the largest crypto exchange by
               trade volume.
             </p>
           </div>
@@ -241,7 +241,7 @@ function Home() {
           <div class="mt-3 text-lg leading-6 text-white ">
             <p>
               There are multiple methods available for purchasing
-              cryptocurrencies on Bitwals. Options include using a credit/debit
+              cryptocurrencies on Bitwalls. Options include using a credit/debit
               card, cash balance, or Apple Pay/Google Pay. Prior to initiating
               any transactions, ensure that you have completed the Identity
               Verification process for your Binance account..
