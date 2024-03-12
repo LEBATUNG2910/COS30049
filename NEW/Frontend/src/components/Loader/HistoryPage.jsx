@@ -79,6 +79,9 @@ const HistoryPage = () => {
             onChange={handleSearchChange}
             className="block mx-auto mb-10 px-4 py-2 border bg-black border-gray-300 text-white w-[30%] rounded-xl"
           />
+          <p className="text-white flex items-center justify-center font-mono">
+            Please wait about 20s before seeing the result
+          </p>
           {filteredTransactions.length === 0 ? (
             <p className=" text-red-700 text-center">No transactions found.</p>
           ) : (
@@ -97,7 +100,7 @@ const HistoryPage = () => {
                   To: {transaction.to}
                 </p>
                 <p className="text-white text-xs md:text-sm mt-1 break-all">
-                  Value: {Web3.utils.fromWei(transaction.value, 'ether')} ETH
+                  Value: {Web3.utils.fromWei(transaction.value, "ether")} ETH
                 </p>
                 <p className="text-white text-xs md:text-sm mt-1 break-all">
                   Timestamp:{" "}
