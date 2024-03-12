@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "../style";
 import { Web3Context } from "../../pages/Web3Context";
 import { bouncy } from "ldrs";
+import Balance from "./Balance";
 
 const TransferEther = ({ updateTransactionHistory }) => {
   const { account } = useContext(Web3Context);
@@ -119,6 +120,9 @@ const TransferEther = ({ updateTransactionHistory }) => {
           >
             Sign & Create Transaction
           </button>
+          <div className="flex items-center justify-center">
+            <Balance />
+          </div>
         </>
       )}
       {transactionSuccess && (

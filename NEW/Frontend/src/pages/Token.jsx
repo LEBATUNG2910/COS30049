@@ -3,7 +3,6 @@ import styles from "../components/style";
 import MetaMaskConnectButton from "../components/Button/WalletConnect";
 import TransferEther from "../components/Loader/TransferEther"; // Import the new component
 import { Web3Context } from "../pages/Web3Context";
-import { Balance } from "../components/Loader";
 const Token = () => {
   const { account } = useContext(Web3Context);
 
@@ -13,7 +12,7 @@ const Token = () => {
         <h1 className="text-white font-poppins font-black md:text-5xl text-3xl tracking-wide mb-10">
           BITWALLS COMPANY
         </h1>
-        <div className={styles.exchangeBoxWrapper}> 
+        <div className={styles.exchangeBoxWrapper}>
           <div className={styles.exchangeBox}>
             {!account && (
               <div className={styles.exchange}>
@@ -21,13 +20,10 @@ const Token = () => {
               </div>
             )}
             {account && (
-              <div className="mt-5 flex flex-col items-center justify-center"> 
-               {/* Render the new component */}
+              <div className="mt-5 flex flex-col items-center justify-center">
+                {/* Render the new component */}
                 <TransferEther />
-                <div className="mt-5 "> 
-                {/* Display the balance component */}
-                  <Balance /> 
-                </div>
+                <div className="mt-5 "></div>
               </div>
             )}
           </div>
