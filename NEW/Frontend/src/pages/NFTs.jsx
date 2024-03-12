@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { data } from "./data"; // Import data from data.js
 import { nft as nftData } from "./nft"; // Rename imported variable to avoid conflict
 import Arrow from "../components/Arrow/Arrow";
+import Buynow from "../components/Button/Buynow";
 function NFTs() {
   const [contacts, setContacts] = useState(data);
   const [search, setSearch] = useState("");
@@ -84,7 +85,6 @@ function NFTs() {
                 <div className="bg-slate-500 w-1/2 border-2 p-1">
                   <h3 className=" text-white font-bold">{nft.name}</h3>
                   <h3 className="text-white ">{nft.id}</h3>
-
                   <div className="flex items-center">
                     <img
                       src="./images/ethereum.png"
@@ -92,6 +92,9 @@ function NFTs() {
                       className="mr-1 w-5 h-5 flex-shrink-0"
                     />
                     <h3 className="text-white font-bold">{nft.number}</h3>
+                  </div>
+                  <div>
+                    <Buynow />
                   </div>
                 </div>
               </div>
