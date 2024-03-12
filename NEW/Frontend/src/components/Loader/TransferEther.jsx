@@ -1,11 +1,12 @@
 // TransferEther.js
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { ethers } from "ethers";
 import { Link } from "react-router-dom";
 import styles from "../style";
 import { Web3Context } from "../../pages/Web3Context";
+import { bouncy } from "ldrs";
 
-const TransferEther = ({ updateTransactionHistory }) => { 
+const TransferEther = ({ updateTransactionHistory }) => {
   const { account } = useContext(Web3Context);
   const [senderAddress] = account;
   const [amount, setAmount] = useState("");
@@ -15,6 +16,7 @@ const TransferEther = ({ updateTransactionHistory }) => {
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [buttonColor, setButtonColor] = useState("black");
+  bouncy.register();
 
   const handleMouseEnter = () => {
     setButtonColor("red");
@@ -83,7 +85,7 @@ const TransferEther = ({ updateTransactionHistory }) => {
 
   return (
     <div className="flex flex-col w-full items-center  ">
-      {loading && <p>Loading...</p>}
+      {loading && <l-bouncy size="45" speed="1.75" color="black"></l-bouncy>}
       {!transactionSuccess && !loading && (
         <>
           <p className=" text-3xl font-mono">ETH Transaction </p>
@@ -115,7 +117,7 @@ const TransferEther = ({ updateTransactionHistory }) => {
             style={{ color: buttonColor }}
             className="mt-5 text-xl font-bold font-mono "
           >
-            Transfer Ether
+            Sign & Create Transaction
           </button>
         </>
       )}
@@ -149,4 +151,4 @@ const TransferEther = ({ updateTransactionHistory }) => {
 };
 
 export default TransferEther;
-// q 
+// q
