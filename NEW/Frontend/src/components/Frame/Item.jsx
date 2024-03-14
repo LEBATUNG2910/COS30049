@@ -72,8 +72,8 @@ const Items = () => (
     {/* Trade Tokens */}
     <div className="font-bold text-base xl:text-xl flex items-center justify-center xl:pr-20">
       <Item
-        title="Buy, sell and explore tokens on BITWALLS"
-        content="Trade Tokens"
+        title="Transact, send and receive ETH on Bitwalls"
+        content="Create transaction"
         imageSrcArray={[
           process.env.PUBLIC_URL + "/images/secure.png",
           process.env.PUBLIC_URL + "/images/eth.png",

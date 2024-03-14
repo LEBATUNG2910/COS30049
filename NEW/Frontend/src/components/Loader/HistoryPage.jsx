@@ -1,4 +1,8 @@
+// HistoryPage.js
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import Web3 from "web3";
 
 const HistoryPage = () => {
@@ -7,6 +11,8 @@ const HistoryPage = () => {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [balance, setBalance] = useState(0);
+  const [additionalInfo, setAdditionalInfo] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -48,6 +54,45 @@ const HistoryPage = () => {
 
     fetchTransactions();
   }, []);
+  const connectmetamask = () => {
+    navigate("/token");
+  };
+
+  useEffect(() => {
+    const fetchTransactionBlockInfo = async (transactionHash) => {
+      try {
+        const web3 = new Web3(window.ethereum);
+        const transaction = await web3.eth.getTransaction(transactionHash);
+        const blockNumber = transaction.blockNumber;
+        const block = await web3.eth.getBlock(blockNumber);
+
+        return block;
+      } catch (error) {
+        throw new Error(
+          `Failed to fetch block info for transaction ${transactionHash}: ${error.message}`
+        );
+      }
+    };
+
+    const fetchAdditionalInfo = async () => {
+      const web3 = new Web3(window.ethereum);
+      const updatedTransactions = [];
+
+      for (const transaction of transactions) {
+        const tx = await web3.eth.getTransaction(transaction.hash);
+        const block = await fetchTransactionBlockInfo(transaction.hash);
+        updatedTransactions.push({
+          ...transaction,
+          additionalInfo: tx,
+          blockInfo: block,
+        });
+      }
+
+      setAdditionalInfo(updatedTransactions);
+    };
+
+    fetchAdditionalInfo();
+  }, [transactions]);
 
   useEffect(() => {
     const filtered = transactions.filter((transaction) =>
@@ -83,14 +128,24 @@ const HistoryPage = () => {
             Please wait about 20s before seeing the result
           </p>
           {filteredTransactions.length === 0 ? (
-            <p className=" text-red-700 text-center">No transactions found.</p>
+            <div className="flex justify-center flex-col items-center max-w-sm mx-auto">
+            <p className="text-red-700 text-center">Please connect to your wallet to see transaction history</p> 
+            
+            <button
+              onClick={connectmetamask}
+              className="bg-green-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-4 ml-2"
+            >
+              Connect your wallet
+            </button>
+          </div>
           ) : (
-            filteredTransactions.map((transaction, index) => (
+            filteredTransactions.map((transaction, index) => ( 
+              
               <div
                 key={transaction.hash}
                 className="flex flex-col items-center justify-center rounded-lg border-2 bg-gray-800 border-violet-500 p-4  lg:mx-96 md:mx-52 font-mono mt-10 "
               >
-                <p className="text-red-500 text-xs md:text-sm text-center break-all  ">
+                <p className="text-red-500 text-xs md:text-sm text-center break-all">
                   Hash: {transaction.hash}
                 </p>
                 <p className="text-emerald-500 text-xs md:text-sm mt-1 break-all">
@@ -106,7 +161,21 @@ const HistoryPage = () => {
                   Timestamp:{" "}
                   {new Date(transaction.timeStamp * 1000).toLocaleString()}
                 </p>
-                <br />
+                {additionalInfo[index] && (
+                  <div>
+                    <p className="text-white text-xs md:text-sm mt-1 break-all">
+                      Gas Price: {additionalInfo[index].gasPrice}
+                    </p>
+                    <p className="text-white text-xs md:text-sm mt-1 break-all">
+                      Gas Used: {additionalInfo[index].gasUsed}
+                    </p>
+                    {additionalInfo[index].blockInfo && (
+                      <p className="text-white text-xs md:text-sm mt-1 break-all">
+                        Block Number: {additionalInfo[index].blockNumber}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             ))
           )}
